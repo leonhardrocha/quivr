@@ -17,6 +17,7 @@ import { LiaFileVideo } from "react-icons/lia";
 import { IconType } from "react-icons/lib";
 
 import { getFileType } from "./getFileType";
+
 import { SupportedFileExtensions } from "../types/SupportedFileExtensions";
 
 const fileTypeIcons: Record<SupportedFileExtensions, IconType> = {
@@ -41,6 +42,7 @@ const fileTypeIcons: Record<SupportedFileExtensions, IconType> = {
   epub: FaFile,
   ipynb: BsFiletypePy,
   py: BsFiletypePy,
+  telegram: BsFiletypeDocx,
 };
 
 export const getFileIcon = (fileName: string): JSX.Element => {

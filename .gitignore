@@ -10,8 +10,7 @@ log.txt
 backend/venv
 backend/.env
 backend/*.deb
-
-
+backend/.python-version
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
@@ -59,9 +58,7 @@ backend/core/application_default_credentials.json
 #local models
 backend/core/local_models/*
 
-
 ## scripts
-.migration_info
 package-lock.json
 
 #vsvode
@@ -69,3 +66,17 @@ package-lock.json
 
 #attibutes
 .gitattibutes
+backend/celerybeat-schedule
+frontend/public/robots.txt
+frontend/public/sitemap*
+
+pyfiles/*
+backend/bin/*
+backend/lib/*
+backend/pyvenv.cfg
+backend/share/*
+backend/slim.report.json
+volumes/db/data/
+volumes/storage/stub/stub/quivr/*
+supabase/migrations/20240103191539_private.sql
+supabase/20240103191539_private.sql

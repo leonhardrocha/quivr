@@ -14,7 +14,7 @@ module.exports = {
     "import/prefer-default-export": 0,
     "import/no-duplicates": "error",
     complexity: ["error", 8],
-    "max-lines": ["error", 100],
+    "max-lines": ["error", 125],
     "max-depth": ["error", 3],
     "max-params": ["error", 4],
     eqeqeq: ["error", "smart"],
@@ -41,7 +41,9 @@ module.exports = {
           ["external", "builtin"],
           "unknown",
           "internal",
-          ["parent", "sibling", "index"],
+          "sibling",
+          "parent",
+          "index",
         ],
         alphabetize: {
           order: "asc",
@@ -130,14 +132,6 @@ module.exports = {
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": "error",
         "@typescript-eslint/prefer-nullish-coalescing": "error",
-        "@typescript-eslint/strict-boolean-expressions": [
-          "error",
-          {
-            allowString: false,
-            allowNumber: false,
-            allowNullableObject: true,
-          },
-        ],
         "@typescript-eslint/ban-ts-comment": [
           "error",
           {

@@ -1,11 +1,4 @@
-from .base import BaseBrainPicking
-from .qa_base import QABaseBrainPicking
-from .openai import OpenAIBrainPicking
+from .knowledge_brain_qa import KnowledgeBrainQA
 from .qa_headless import HeadlessQA
 
-__all__ = [
-    "BaseBrainPicking",
-    "QABaseBrainPicking",
-    "OpenAIBrainPicking",
-    "HeadlessQA"
-]
+__all__ = ["KnowledgeBrainQA", "HeadlessQA"]

@@ -9,9 +9,9 @@ import { useActionBar } from "./hooks/useActionBar";
 
 export const ActionsBar = (): JSX.Element => {
   const { hasPendingRequests, setHasPendingRequests } = useActionBar();
+  const { shouldDisplayFeedCard } = useKnowledgeToFeedContext();
 
   const { t } = useTranslation(["chat"]);
-  const { shouldDisplayFeedCard } = useKnowledgeToFeedContext();
 
   return (
     <>
@@ -41,9 +41,7 @@ export const ActionsBar = (): JSX.Element => {
             </motion.div>
           </AnimatePresence>
         )}
-        {!shouldDisplayFeedCard && (
-          <ChatInput shouldDisplayFeedCard={shouldDisplayFeedCard} />
-        )}
+        {!shouldDisplayFeedCard && <ChatInput />}
       </div>
     </>
   );

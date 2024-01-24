@@ -1,87 +1,65 @@
-/* eslint-disable */
 "use client";
 import Link from "next/link";
-
-import Button from "@/lib/components/ui/Button";
-import Card from "@/lib/components/ui/Card";
-import { Divider } from "@/lib/components/ui/Divider";
-import Field from "@/lib/components/ui/Field";
-import PageHeading from "@/lib/components/ui/PageHeading";
-
 import { Suspense } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+
+import { QuivrLogo } from "@/lib/assets/QuivrLogo";
+import { Divider } from "@/lib/components/ui/Divider";
+import { useAuthModes } from "@/lib/hooks/useAuthModes";
+
+import { EmailLogin } from "./components/EmailLogin";
 import { GoogleLoginButton } from "./components/GoogleLogin";
-import { MagicLinkLogin } from "./components/MagicLinkLogin";
-import { PasswordForgotten } from "./components/PasswordForgotten";
 import { useLogin } from "./hooks/useLogin";
+import { EmailAuthContextType } from "./types";
 
-function Main() {
-  const { handleLogin, setEmail, setPassword, email, isPending, password } =
-    useLogin();
+const Main = (): JSX.Element => {
+  useLogin();
+  const { googleSso, password, magicLink } = useAuthModes();
+
+  const methods = useForm<EmailAuthContextType>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
   const { t } = useTranslation(["translation", "login"]);
+
   return (
-    <main>
-      <section className="w-full min-h-[80vh] h-full outline-none flex flex-col gap-5 items-center justify-center p-6">
-        <PageHeading
-          title={t("title", { ns: "login" })}
-          subtitle={t("subtitle", { ns: "login" })}
-        />
-        <Card className="max-w-md w-full p-5 sm:p-10 text-left">
-          <form
-            data-testid="sign-in-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleLogin();
-            }}
-            className="flex flex-col gap-2"
-          >
-            <Field
-              name="email"
-              required
-              type="email"
-              placeholder={t("email")}
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-            <Field
-              name="password"
-              required
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder={t("password")}
-            />
-
-            <div className="flex flex-col items-center justify-center mt-2 gap-2">
-              <Button
-                data-testid="submit-login"
-                type="submit"
-                isLoading={isPending}
-              >
-                {t("loginButton")}
-              </Button>
-              <PasswordForgotten setEmail={setEmail} email={email} />
-
-              <Link href="/signup">{t("signup", { ns: "login" })}</Link>
-            </div>
-
-            <Divider text={t("or")} />
-            <div className="flex flex-col items-center justify-center mt-2 gap-2">
-              <GoogleLoginButton />
-            </div>
-            <Divider text={t("or")} />
-            <MagicLinkLogin email={email} setEmail={setEmail} />
-          </form>
-        </Card>
-      </section>
-    </main>
+    <div className="w-screen h-screen bg-ivory" data-testid="sign-in-card">
+      <main className="h-full flex flex-col items-center justify-center">
+        <section className="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-2">
+          <Link href="/" className="flex justify-center">
+            <QuivrLogo size={80} color="black" />
+          </Link>
+          <p className="text-center text-4xl font-medium">
+            {t("talk_to", { ns: "login" })}{" "}
+            <span className="text-primary">Quivr</span>
+          </p>
+          <div className="mt-5 flex flex-col">
+            <FormProvider {...methods}>
+              <EmailLogin />
+            </FormProvider>
+            {googleSso && (password || magicLink) && (
+              <Divider text={t("or")} className="my-3 uppercase" />
+            )}
+            {googleSso && <GoogleLoginButton />}
+          </div>
+          <p className="text-[10px] text-center">
+            {t("restriction_message", { ns: "login" })}
+          </p>
+        </section>
+      </main>
+    </div>
   );
-}
+};
 
-export default function Login() {
+const Login = (): JSX.Element => {
   return (
     <Suspense fallback="Loading...">
       <Main />
     </Suspense>
   );
-}
+};
+
+export default Login;

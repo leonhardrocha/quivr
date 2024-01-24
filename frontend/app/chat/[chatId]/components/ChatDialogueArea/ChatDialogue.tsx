@@ -1,9 +1,7 @@
-import { useFeatureIsOn } from "@growthbook/growthbook-react";
-
 import { useChatContext } from "@/lib/context";
+import { useOnboarding } from "@/lib/hooks/useOnboarding";
 
 import { ChatDialogue } from "./components/ChatDialogue";
-import { ShortCuts } from "./components/ShortCuts";
 import { getMergedChatMessagesWithDoneStatusNotificationsReduced } from "./utils/getMergedChatMessagesWithDoneStatusNotificationsReduced";
 
 export const ChatDialogueArea = (): JSX.Element => {
@@ -13,14 +11,13 @@ export const ChatDialogueArea = (): JSX.Element => {
     messages,
     notifications
   );
-  const shouldDisplayOnboarding = useFeatureIsOn("onboarding");
+  const { isOnboarding } = useOnboarding();
 
-  const shouldDisplayShortcuts =
-    chatItems.length === 0 && !shouldDisplayOnboarding;
+  const shouldDisplayShortcuts = chatItems.length === 0 && !isOnboarding;
 
   if (!shouldDisplayShortcuts) {
     return <ChatDialogue chatItems={chatItems} />;
   }
 
-  return <ShortCuts />;
+  return <></>;
 };

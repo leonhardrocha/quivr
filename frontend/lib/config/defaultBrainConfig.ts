@@ -1,22 +1,31 @@
-import { BrainConfig } from "../types/brainConfig";
+import { CreateBrainInput } from "../api/brain/types";
+import { Model } from "../types/BrainConfig";
 
-export const defaultBrainConfig: BrainConfig = {
+export const addBrainDefaultValues: CreateBrainInput = {
   model: "gpt-3.5-turbo",
   temperature: 0,
-  maxTokens: 500,
-  keepLocal: true,
-  anthropicKey: undefined,
-  backendUrl: undefined,
-  openAiKey: undefined,
-  supabaseKey: undefined,
-  supabaseUrl: undefined,
+  max_tokens: 1000,
   prompt_id: undefined,
   status: "private",
-  prompt: {
-    title: "",
-    content: "",
-  },
   name: "",
   description: "",
-  setDefault: false,
+  brain_type: "doc",
+  brain_definition: {
+    method: "GET",
+    url: "",
+    search_params: {
+      properties: [],
+      required: [],
+    },
+    params: {
+      properties: [],
+      required: [],
+    },
+    secrets: [],
+  },
+  connected_brains_ids: [],
 };
+
+export const defaultModel: Model = "gpt-3.5-turbo";
+export const defaultMaxTokens = 1000;
+export const defaultTemperature = 0;

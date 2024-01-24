@@ -6,18 +6,18 @@ import {
   TooltipTrigger,
 } from "@radix-ui/react-tooltip";
 import { cva, type VariantProps } from "class-variance-authority";
-import { ButtonHTMLAttributes, LegacyRef, forwardRef } from "react";
-import { FaSpinner } from "react-icons/fa";
+import { ButtonHTMLAttributes, Ref, RefAttributes, forwardRef } from "react";
 
 import { cn } from "@/lib/utils";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const ButtonVariants = cva(
-  "px-8 py-3 text-sm disabled:opacity-80 text-center font-medium rounded-md focus:ring ring-primary/10 outline-none flex items-center justify-center gap-2 transition-opacity",
+  "px-8 py-3 text-sm disabled:opacity-80 text-center font-medium rounded-md focus:ring ring-primary/10 outline-none flex items-center justify-center gap-2 transition-opacity focus:ring-0",
   {
     variants: {
       variant: {
         primary:
-          "bg-black border border-black dark:border-white disabled:bg-gray-500 disabled:hover:bg-gray-500 text-white dark:bg-white dark:text-black hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors",
+          "bg-primary border border-black dark:border-white disabled:bg-gray-500 disabled:hover:bg-gray-500 text-white dark:bg-white dark:text-black hover:bg-gray-700 dark:hover:bg-gray-200 transition-colors",
         tertiary:
           "text-black dark:text-white bg-transparent py-2 px-4 disabled:opacity-25",
         secondary:
@@ -56,22 +56,25 @@ const Button = forwardRef(
     }: ButtonProps,
     forwardedRef
   ): JSX.Element => {
-    const buttonElement = (
-      <button
-        className={cn(ButtonVariants({ variant, brightness, className }))}
-        disabled={isLoading}
-        {...props}
-        ref={forwardedRef as LegacyRef<HTMLButtonElement>}
-      >
-        {children} {isLoading && <FaSpinner className="animate-spin" />}
-      </button>
+    const buttonProps: ButtonProps & RefAttributes<HTMLButtonElement> = {
+      className: cn(ButtonVariants({ variant, brightness, className })),
+      disabled: isLoading,
+      ...props,
+      ref: forwardedRef as Ref<HTMLButtonElement> | undefined,
+    };
+
+    const buttonChildren = (
+      <>
+        {children}{" "}
+        {isLoading && <AiOutlineLoading3Quarters className="animate-spin" />}
+      </>
     );
 
     if (tooltip !== undefined) {
       return (
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger>{buttonElement}</TooltipTrigger>
+            <TooltipTrigger {...buttonProps}>{buttonChildren}</TooltipTrigger>
             <TooltipContent className="bg-gray-100 rounded-md p-1">
               {tooltip}
             </TooltipContent>
@@ -80,9 +83,8 @@ const Button = forwardRef(
       );
     }
 
-    return buttonElement;
+    return <button {...buttonProps}>{buttonChildren}</button>;
   }
 );
 
-Button.displayName = "Button";
 export default Button;
