@@ -1,6 +1,7 @@
 FROM node:18-alpine
 # Install Python and essential build tools
 RUN apk add --update --no-cache python3 make g++ && ln -sf python3 /usr/bin/python
+RUN sudo rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 
