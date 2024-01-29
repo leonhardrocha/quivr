@@ -1,12 +1,9 @@
 {
-  "python.formatting.provider": "black",
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
     "source.fixAll": "explicit",
     "source.unusedImports": "explicit"
   },
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
   "editor.formatOnSave": true,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
@@ -42,7 +39,29 @@
     "**/.docusaurus/": true,
     "**/node_modules/": true
   },
-  "python.linting.pycodestyleCategorySeverity.W": "Error",
   "python.defaultInterpreterPath": "python3",
-  "python.linting.flake8CategorySeverity.W": "Error",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "WSL": {
+      "path": [
+        "C:\\WINDOWS\\System32\\wsl.exe"
+      ],
+      "args": [],
+      "icon": "terminal-ubuntu-wsl"
+    }
+  }
 }

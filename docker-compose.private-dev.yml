@@ -28,6 +28,7 @@ services:
       - ~/.config/gcloud:/root/.config/gcloud
     ports:
       - 5050:5050
+      - 5678:5678
   backend-private:
     env_file:
       - ./backend/private/.env
