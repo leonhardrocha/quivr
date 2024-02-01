@@ -14,6 +14,8 @@ COPY ./requirements.txt .
 # Increase timeout might not be necessary but is retained as in original
 RUN pip install --no-cache-dir -r requirements.txt --timeout 100
 
+RUN pip install python-dotenv
+
 # Copy the rest of the application
 COPY . .
 

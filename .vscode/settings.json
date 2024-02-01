@@ -1,4 +1,6 @@
 {
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
     "source.fixAll": "explicit",
@@ -39,7 +41,6 @@
     "**/.docusaurus/": true,
     "**/node_modules/": true
   },
-  "python.defaultInterpreterPath": "python3",
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
       "source": "PowerShell",
