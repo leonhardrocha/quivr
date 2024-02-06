@@ -2,7 +2,7 @@ from typing import Any, List
 
 from langchain.docstore.document import Document
 from langchain.embeddings.base import Embeddings
-from langchain.vectorstores import SupabaseVectorStore
+from langchain_community.vectorstores import SupabaseVectorStore
 from logger import get_logger
 from supabase.client import Client
 
@@ -14,6 +14,8 @@ class CustomSupabaseVectorStore(SupabaseVectorStore):
 
     brain_id: str = "none"
     user_id: str = "none"
+    number_docs: int = 35
+    max_input: int = 2000
 
     def __init__(
         self,
@@ -22,10 +24,14 @@ class CustomSupabaseVectorStore(SupabaseVectorStore):
         table_name: str,
         brain_id: str = "none",
         user_id: str = "none",
+        number_docs: int = 35,
+        max_input: int = 2000,
     ):
         super().__init__(client, embedding, table_name)
         self.brain_id = brain_id
         self.user_id = user_id
+        self.number_docs = number_docs
+        self.max_input = max_input
 
     def find_brain_closest_query(
         self,
@@ -42,7 +48,7 @@ class CustomSupabaseVectorStore(SupabaseVectorStore):
             table,
             {
                 "query_embedding": query_embedding,
-                "match_count": k,
+                "match_count": self.number_docs,
                 "p_user_id": str(self.user_id),
             },
         ).execute()
@@ -62,7 +68,7 @@ class CustomSupabaseVectorStore(SupabaseVectorStore):
     def similarity_search(
         self,
         query: str,
-        k: int = 6,
+        k: int = 40,
         table: str = "match_vectors",
         threshold: float = 0.5,
         **kwargs: Any,
@@ -73,7 +79,7 @@ class CustomSupabaseVectorStore(SupabaseVectorStore):
             table,
             {
                 "query_embedding": query_embedding,
-                "match_count": k,
+                "match_count": self.number_docs,
                 "p_brain_id": str(self.brain_id),
             },
         ).execute()
@@ -95,5 +101,15 @@ class CustomSupabaseVectorStore(SupabaseVectorStore):
         ]
 
         documents = [doc for doc, _ in match_result]
+        max_tokens_input = self.max_input
+        documents_to_return = []
 
-        return documents
+        # Limits to max_tokens_input with metadata chunk_size
+        for doc in documents:
+            if doc.metadata["chunk_size"] <= max_tokens_input:
+                documents_to_return.append(doc)
+                max_tokens_input -= doc.metadata["chunk_size"]
+            else:
+                break
+
+        return documents_to_return

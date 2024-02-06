@@ -1,4 +1,5 @@
 {
+  "addBrain": "Добавить мозг",
   "api_brain": {
     "addRow": "Добавить строку",
     "description": "Описание",
@@ -25,6 +26,7 @@
   "confirm_set_brain_status_to_private": "Да, установить как частное",
   "confirm_set_brain_status_to_public": "Да, установить как публичный",
   "copiedToClipboard": "Скопировано в буфер обмена",
+  "createBrain": "Создать мозг",
   "defaultBrain": "Мозг по умолчанию",
   "empty_brain_description": "Нет описания",
   "errorCreatingBrain": "Произошла ошибка при создании мозга",
@@ -37,8 +39,9 @@
   "knowledge_source_doc": "Документы",
   "knowledge_source_label": "Источник знаний",
   "manage_brain": "Управление мозгом",
+  "manage_brains": "Управление мозгами",
   "myBrains": "Мои мозги",
-  "newBrain": "Добавить новый мозг",
+  "newBrain": "Новый мозг",
   "newBrainSubtitle": "Создайте новое пространство для ваших данных",
   "newBrainTitle": "Добавить новый мозг",
   "noBrainUsers": "Нет пользователей мозга",

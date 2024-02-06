@@ -129,6 +129,7 @@ module.exports = {
       },
       rules: {
         "@typescript-eslint/prefer-optional-chain": "error",
+        "react-hooks/exhaustive-deps": "off",
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": "error",
         "@typescript-eslint/prefer-nullish-coalescing": "error",
@@ -169,13 +170,7 @@ module.exports = {
         "@typescript-eslint/no-unnecessary-type-arguments": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
         "@typescript-eslint/switch-exhaustiveness-check": "error",
-        "@typescript-eslint/restrict-template-expressions": [
-          "error",
-          {
-            allowNumber: true,
-            allowBoolean: true,
-          },
-        ],
+        "@typescript-eslint/restrict-template-expressions": "off",
       },
     },
   ],

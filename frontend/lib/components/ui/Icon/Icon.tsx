@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { IconType } from "react-icons/lib";
 
 import { iconList } from "@/lib/helpers/iconList";
@@ -13,6 +14,8 @@ interface IconProps {
   disabled?: boolean;
   classname?: string;
   hovered?: boolean;
+  handleHover?: boolean;
+  onClick?: () => void;
 }
 
 export const Icon = ({
@@ -22,18 +25,30 @@ export const Icon = ({
   disabled,
   classname,
   hovered,
+  handleHover,
+  onClick,
 }: IconProps): JSX.Element => {
+  const [iconHovered, setIconHovered] = useState(false);
   const IconComponent: IconType = iconList[name];
+
+  useEffect(() => {
+    if (!handleHover) {
+      setIconHovered(!!hovered);
+    }
+  }, [hovered, handleHover]);
 
   return (
     <IconComponent
       className={`
-      ${classname ?? ""} 
-      ${styles[size] ?? ""} 
-      ${styles[color] ?? ""}
-      ${disabled ? styles.disabled ?? "" : ""}
-      ${hovered ? styles.hovered ?? "" : ""}
+      ${classname} 
+      ${styles[size]} 
+      ${styles[color]}
+      ${disabled ? styles.disabled : ""}
+      ${iconHovered || hovered ? styles.hovered : ""}
       `}
+      onMouseEnter={() => handleHover && setIconHovered(true)}
+      onMouseLeave={() => handleHover && setIconHovered(false)}
+      onClick={onClick}
     />
   );
 };

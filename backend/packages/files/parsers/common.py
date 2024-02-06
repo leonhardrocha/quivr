@@ -2,7 +2,6 @@ import time
 
 from logger import get_logger
 from models import File
-from models.settings import get_supabase_db
 from modules.brain.service.brain_vector_service import BrainVectorService
 from packages.embeddings.vectors import Neurons
 from repository.files.upload_file import DocumentSerializable
@@ -14,8 +13,10 @@ async def process_file(
     file: File,
     loader_class,
     brain_id,
+    original_file_name,
+    integration=None,
+    integration_link=None,
 ):
-    database = get_supabase_db()
     dateshort = time.strftime("%Y%m%d")
     neurons = Neurons()
 
@@ -28,6 +29,9 @@ async def process_file(
         "chunk_size": file.chunk_size,
         "chunk_overlap": file.chunk_overlap,
         "date": dateshort,
+        "original_file_name": original_file_name or file.file_name,
+        "integration": integration or "",
+        "integration_link": integration_link or "",
     }
     docs = []
 

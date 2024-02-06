@@ -7,7 +7,7 @@ type AnimatedDivProps = {
 };
 export const AnimatedDiv = ({ children }: AnimatedDivProps): JSX.Element => {
   const { isOpened } = useMenuContext();
-  const OPENED_MENU_WIDTH = 260;
+  const OPENED_MENU_WIDTH = 230;
 
   return (
     <motion.div
@@ -21,7 +21,7 @@ export const AnimatedDiv = ({ children }: AnimatedDivProps): JSX.Element => {
           ? "10px 10px 16px rgba(0, 0, 0, 0)"
           : "10px 10px 16px rgba(0, 0, 0, 0.5)",
       }}
-      className={"overflow-hidden flex flex-col flex-1 bg-white"}
+      className={"overflow-hidden flex flex-col flex-1 bg-grey"}
     >
       {children}
     </motion.div>

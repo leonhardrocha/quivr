@@ -13,13 +13,15 @@ RUN apt-get clean && apt-get update && apt-get install -y \
     pandoc \
     curl \
     git \
+    autoconf \
+    automake \
+    libtool \
+    python-dev \
     build-essential && \
     rm -rf /var/lib/apt/lists/* && apt-get clean
 
 # Add Rust binaries to the PATH
 ENV PATH="/root/.cargo/bin:${PATH}"
-
-WORKDIR /code
 
 # Copy just the requirements first
 COPY ./requirements.txt .

@@ -25,8 +25,12 @@
   color: Colors.$black;
 
   &.hovered {
-    color: Colors.$accent;
+    color: Colors.$primary;
   }
+}
+
+.dark-grey {
+  color: Colors.$dark-grey;
 }
 
 .primary {
@@ -37,10 +41,32 @@
   color: Colors.$accent;
 }
 
+.gold {
+  color: Colors.$gold;
+}
+
 .white {
   color: Colors.$white;
+
+  &:hover {
+    color: Colors.$accent;
+  }
+}
+
+.dangerous {
+  color: Colors.$dangerous;
+
+  &.hovered {
+    color: Colors.$dangerous-dark;
+  }
 }
 
 .disabled {
+  color: Colors.$black;
+  pointer-events: none;
   opacity: 0.2;
+}
+
+.hovered {
+  cursor: pointer;
 }

@@ -1,5 +1,139 @@
 # Changelog
 
+## 0.0.195 (2024-02-06)
+
+## What's Changed
+* feat(integrations): integration with Notion in the backend by @StanGirard in https://github.com/StanGirard/quivr/pull/2123
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.194...v0.0.195
+
+## 0.0.194 (2024-02-05)
+
+## What's Changed
+* feat(frontend): add a chatbot for users  by @Zewed in https://github.com/StanGirard/quivr/pull/2144
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.193...v0.0.194
+
+## 0.0.193 (2024-02-04)
+
+## What's Changed
+* feat(frontend): design changes on user profile by @Zewed in https://github.com/StanGirard/quivr/pull/2140
+* fix(frontend): rename upgrade to plus to upgrade by @Zewed in https://github.com/StanGirard/quivr/pull/2141
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.192...v0.0.193
+
+## 0.0.192 (2024-02-02)
+
+## What's Changed
+* feat(frontend): display which brain you are talking to by @Zewed in https://github.com/StanGirard/quivr/pull/2137
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.191...v0.0.192
+
+## 0.0.191 (2024-02-01)
+
+## What's Changed
+* fix(frontend): no sources repetition in data panel by @Zewed in https://github.com/StanGirard/quivr/pull/2132
+* fix(frontend): don't show copy icon when thinking by @Zewed in https://github.com/StanGirard/quivr/pull/2133
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.190...v0.0.191
+
+## 0.0.190 (2024-01-31)
+
+## What's Changed
+* fix(frontend): Better contrast in Menu by @Zewed in https://github.com/StanGirard/quivr/pull/2119
+* fix(frontend): better chat color and copy icon position by @Zewed in https://github.com/StanGirard/quivr/pull/2121
+* fix(frontend): better visualisation of current path on menu by @Zewed in https://github.com/StanGirard/quivr/pull/2122
+* feat(frontend): uniformize behaviour for metadata panel by @Zewed in https://github.com/StanGirard/quivr/pull/2124
+* fix(frontend): fetch chat only if session exist by @Zewed in https://github.com/StanGirard/quivr/pull/2130
+* fix(frontend): prompt display by @Zewed in https://github.com/StanGirard/quivr/pull/2129
+* fix(frontend): upload knwoledge in brains manegement by @Zewed in https://github.com/StanGirard/quivr/pull/2131
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.189...v0.0.190
+
+## 0.0.189 (2024-01-30)
+
+## What's Changed
+* feat(frontend): design menu by @Zewed in https://github.com/StanGirard/quivr/pull/2116
+* fix(frontend): fix z index popover on add knwoledge modal by @Zewed in https://github.com/StanGirard/quivr/pull/2118
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.188...v0.0.189
+
+## 0.0.188 (2024-01-29)
+
+## What's Changed
+* fix: 🐛 upload by @StanGirard in https://github.com/StanGirard/quivr/pull/2112
+* feat(frontend): add sources to metadata by @Zewed in https://github.com/StanGirard/quivr/pull/2113
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.187...v0.0.188
+
+## 0.0.187 (2024-01-28)
+
+## What's Changed
+* feat: 🎸 user-limits by @StanGirard in https://github.com/StanGirard/quivr/pull/2104
+* fix: 🐛 brains by @StanGirard in https://github.com/StanGirard/quivr/pull/2107
+* feat(frontend): chat page ui/ux design by @Zewed in https://github.com/StanGirard/quivr/pull/2106
+* Fix typo of UI: Ressources ==> Resources by @iharel in https://github.com/StanGirard/quivr/pull/2109
+* fix(frontend): fix li markdown on chat by @Zewed in https://github.com/StanGirard/quivr/pull/2110
+
+## New Contributors
+* @iharel made their first contribution in https://github.com/StanGirard/quivr/pull/2109
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.186...v0.0.187
+
+## 0.0.186 (2024-01-27)
+
+## What's Changed
+* fix(frontend): click on mention list on search bar in modal bug by @Zewed in https://github.com/StanGirard/quivr/pull/2098
+* fix(frontend): remove dark theme by @Zewed in https://github.com/StanGirard/quivr/pull/2100
+* fix(frontend): delete brain by @Zewed in https://github.com/StanGirard/quivr/pull/2101
+* feat(14k): done by @StanGirard in https://github.com/StanGirard/quivr/pull/2102
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.185...v0.0.186
+
+## 0.0.185 (2024-01-27)
+
+## What's Changed
+* fix: 🐛 brain by @StanGirard in https://github.com/StanGirard/quivr/pull/2096
+* feat(frontend): search modal - remove parameters and explore buttons by @Zewed in https://github.com/StanGirard/quivr/pull/2094
+* fix: 🐛 tests by @StanGirard in https://github.com/StanGirard/quivr/pull/2095
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.184...v0.0.185
+
+## 0.0.184 (2024-01-26)
+
+## What's Changed
+* feat(panel): added by @Zewed in https://github.com/StanGirard/quivr/pull/2088
+* feat: 🎸 api by @StanGirard in https://github.com/StanGirard/quivr/pull/2078
+* fix(frontend): clear message input on submit by @Zewed in https://github.com/StanGirard/quivr/pull/2087
+* fix: 🐛 related by @StanGirard in https://github.com/StanGirard/quivr/pull/2090
+* feat: Added translation status badge from inlang by @NilsJacobsen in https://github.com/StanGirard/quivr/pull/2080
+* fix(streaming): Data Truncation Issue in useHandleStream Function by @openperf in https://github.com/StanGirard/quivr/pull/2079
+* feat: 🎸 sources by @StanGirard in https://github.com/StanGirard/quivr/pull/2092
+* fix(frontend): clean related Brains useEffect by @Zewed in https://github.com/StanGirard/quivr/pull/2091
+
+## New Contributors
+* @openperf made their first contribution in https://github.com/StanGirard/quivr/pull/2079
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.183...v0.0.184
+
+## 0.0.183 (2024-01-24)
+
+## What's Changed
+* fix: 🐛 subscription by @StanGirard in https://github.com/StanGirard/quivr/pull/2081
+
+
+**Full Changelog**: https://github.com/StanGirard/quivr/compare/v0.0.182...v0.0.183
+
 ## 0.0.182 (2024-01-24)
 
 ## What's Changed

@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 from uuid import UUID
 
+from .entity import LLMModels
+
 
 class Repository(ABC):
     @abstractmethod
@@ -10,6 +12,10 @@ class Repository(ABC):
 
     @abstractmethod
     def get_user_usage(self, user_id: UUID):
+        pass
+
+    @abstractmethod
+    def get_model_settings(self) -> LLMModels | None:
         pass
 
     @abstractmethod
@@ -59,9 +65,7 @@ class Repository(ABC):
         pass
 
     @abstractmethod
-    def similarity_search(
-        self, query_embedding, table: str, top_k: int, threshold: float
-    ):
+    def similarity_search(self, query_embedding, table: str, k: int, threshold: float):
         pass
 
     @abstractmethod

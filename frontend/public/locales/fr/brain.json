@@ -1,4 +1,5 @@
 {
+  "addBrain": "Ajouter un cerveau",
   "api_brain": {
     "addRow": "Ajouter une ligne",
     "description": "Description",
@@ -25,6 +26,7 @@
   "confirm_set_brain_status_to_private": "Oui, définir comme privé",
   "confirm_set_brain_status_to_public": "Oui, définir comme public",
   "copiedToClipboard": "Copié dans le presse-papier",
+  "createBrain": "Créer un cerveau",
   "defaultBrain": "Cerveau par défaut",
   "empty_brain_description": "Pas de description",
   "errorCreatingBrain": "Une erreur s'est produite lors de la création d'un cerveau",
@@ -37,8 +39,9 @@
   "knowledge_source_doc": "Documents",
   "knowledge_source_label": "Source de connaissance",
   "manage_brain": "Gérer le cerveau",
+  "manage_brains": "Gérer les cerveaux",
   "myBrains": "Mes cerveaux",
-  "newBrain": "Ajouter un nouveau cerveau",
+  "newBrain": "Nouveau cerveau",
   "newBrainSubtitle": "Créez un nouvel espace pour vos données",
   "newBrainTitle": "Ajouter un nouveau cerveau",
   "noBrainUsers": "Pas de brainUsers",
@@ -51,7 +54,7 @@
   "public_brain_subscribe_button_label": "S'abonner",
   "public_brain_subscription_success_message": "Vous vous êtes abonné avec succès au cerveau",
   "public_brains_search_bar_placeholder": "Rechercher des cerveaux publics",
-  "resources": "Ressources",
+  "resources": "Resources",
   "searchBrain": "Rechercher un cerveau",
   "secrets_update_error": "Erreur lors de la mise à jour des secrets",
   "secrets_updated": "Secrets mis à jour",

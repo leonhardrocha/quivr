@@ -1,4 +1,5 @@
 {
+  "addBrain": "Adicionar cérebro",
   "api_brain": {
     "addRow": "Add row",
     "description": "Description",
@@ -25,6 +26,7 @@
   "confirm_set_brain_status_to_private": "Sim, definir como privado",
   "confirm_set_brain_status_to_public": "Sim, definir como público",
   "copiedToClipboard": "Copiado para a área de transferência",
+  "createBrain": "Criar cérebro",
   "defaultBrain": "Cérebro padrão",
   "empty_brain_description": "Sem descrição",
   "errorCreatingBrain": "Um erro aconteceu ao criar o cérebro",
@@ -37,8 +39,9 @@
   "knowledge_source_doc": "Documentos",
   "knowledge_source_label": "Fonte de conhecimento",
   "manage_brain": "Gerenciar cérebro",
+  "manage_brains": "Gerenciar cérebros",
   "myBrains": "Meus cérebros",
-  "newBrain": "Adicione um novo cérebro",
+  "newBrain": "Novo cérebro",
   "newBrainSubtitle": "Subtítulo do cérebro",
   "newBrainTitle": "Como você vai chamar esse cérebro?",
   "noBrainUsers": "Sem cérebros",

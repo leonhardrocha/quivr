@@ -1,4 +1,5 @@
 {
+  "addBrain": "添加大脑",
   "api_brain": {
     "addRow": "添加行",
     "description": "描述",
@@ -25,6 +26,7 @@
   "confirm_set_brain_status_to_private": "是的，设为私有",
   "confirm_set_brain_status_to_public": "是的，设为公共",
   "copiedToClipboard": "已复制到剪贴板",
+  "createBrain": "创建大脑",
   "defaultBrain": "默认大脑",
   "empty_brain_description": "无描述",
   "errorCreatingBrain": "创建大脑时发生错误",
@@ -37,8 +39,9 @@
   "knowledge_source_doc": "文档",
   "knowledge_source_label": "知识来源",
   "manage_brain": "管理大脑",
+  "manage_brains": "管理大脑",
   "myBrains": "我的大脑",
-  "newBrain": "添加新大脑",
+  "newBrain": "新大脑",
   "newBrainSubtitle": "为您的数据创建一个新空间",
   "newBrainTitle": "添加新大脑",
   "noBrainUsers": "没有大脑用户",

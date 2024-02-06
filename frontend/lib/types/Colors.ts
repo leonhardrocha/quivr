@@ -1,1 +1,8 @@
-export type Color = "black" | "primary" | "accent" | "white";
+export type Color =
+  | "black"
+  | "dark-grey"
+  | "primary"
+  | "gold"
+  | "accent"
+  | "white"
+  | "dangerous";

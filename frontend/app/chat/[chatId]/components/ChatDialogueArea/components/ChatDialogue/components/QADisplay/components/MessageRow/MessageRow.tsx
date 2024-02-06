@@ -1,10 +1,13 @@
 import React from "react";
 
-import { CopyButton } from "./components/CopyButton";
-import { MessageContent } from "./components/MessageContent";
-import { QuestionBrain } from "./components/QuestionBrain";
-import { QuestionPrompt } from "./components/QuestionPrompt";
-import { SourcesButton } from "./components/SourcesButton";
+import { CopyButton } from "@/lib/components/ui/CopyButton";
+import Icon from "@/lib/components/ui/Icon/Icon";
+import { Source } from "@/lib/types/MessageMetadata";
+
+import styles from "./MessageRow.module.scss";
+import { MessageContent } from "./components/MessageContent/MessageContent";
+import { QuestionBrain } from "./components/QuestionBrain/QuestionBrain";
+import { QuestionPrompt } from "./components/QuestionPrompt/QuestionPrompt";
 import { useMessageRow } from "./hooks/useMessageRow";
 
 type MessageRowProps = {
@@ -14,63 +17,51 @@ type MessageRowProps = {
   promptName?: string | null;
   children?: React.ReactNode;
   metadata?: {
-    sources?: [string] | [];
+    sources?: Source[];
   };
 };
 
 export const MessageRow = React.forwardRef(
   (
-    {
-      speaker,
-      text,
-      brainName,
-      promptName,
-      children,
-      metadata,
-    }: MessageRowProps,
+    { speaker, text, brainName, promptName, children }: MessageRowProps,
     ref: React.Ref<HTMLDivElement>
   ) => {
-    const {
-      containerClasses,
-      containerWrapperClasses,
-      handleCopy,
-      isCopied,
-      isUserSpeaker,
-      markdownClasses,
-    } = useMessageRow({
+    const { handleCopy, isUserSpeaker } = useMessageRow({
       speaker,
       text,
     });
 
     const messageContent = text ?? "";
-    const sourcesContent = metadata?.sources ?? [];
-
-    const hasSources = Boolean(sourcesContent);
 
     return (
-      <div className={containerWrapperClasses}>
-        <div ref={ref} className={containerClasses}>
-          <div className="flex justify-between items-start w-full">
-            {/* Left section for the question and prompt */}
-            <div className="flex gap-1">
-              <QuestionBrain brainName={brainName} />
-              <QuestionPrompt promptName={promptName} />
-            </div>
-            {/* Right section for buttons */}
-            <div className="flex items-center gap-2">
-              {!isUserSpeaker && (
-                <>
-                  {hasSources && <SourcesButton sources={sourcesContent} />}
-                  <CopyButton handleCopy={handleCopy} isCopied={isCopied} />
-                </>
-              )}
-            </div>
+      <div
+        className={`
+      ${styles.message_row_container} 
+      ${isUserSpeaker ? styles.user : styles.brain}
+      `}
+      >
+        {!isUserSpeaker ? (
+          <div className={styles.message_header}>
+            <QuestionBrain brainName={brainName} />
+            <QuestionPrompt promptName={promptName} />
           </div>
+        ) : (
+          <div className={styles.message_header}>
+            <Icon name="user" color="dark-grey" size="normal" />
+            <span className={styles.me}>Me</span>
+          </div>
+        )}
+        {}
+        <div ref={ref} className={styles.message_row_content}>
           {children ?? (
-            <MessageContent
-              text={messageContent}
-              markdownClasses={markdownClasses}
-            />
+            <>
+              <MessageContent text={messageContent} isUser={isUserSpeaker} />
+              {!isUserSpeaker && messageContent !== "🧠" && (
+                <div className={styles.copy_button}>
+                  <CopyButton handleCopy={handleCopy} />
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
